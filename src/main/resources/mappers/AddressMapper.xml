@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="shopping_project.mapper.AddressMapper">
+	<resultMap type="Address" id="resAddress">
+		<result property="zipNum" column="ZIP_NUM"/>
+		<result property="sido" column="SIDO"/>
+		<result property="gugun" column="GUGUN"/>
+		<result property="dong" column="DONG"/>
+		<result property="bunji" column="BUNJI"/>
+		<result property="zipCode" column="ZIP_CODE"/>
+	</resultMap>
+
+	<select id="selectAddressByDong" resultMap="resAddress">
+		SELECT ZIP_NUM, SIDO, GUGUN, DONG, ZIP_CODE, BUNJI FROM ADDRESS WHERE DONG LIKE #{dong}
+	</select>	
+</mapper>
