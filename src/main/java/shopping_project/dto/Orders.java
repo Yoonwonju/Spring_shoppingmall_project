@@ -9,8 +9,45 @@ public class Orders {
     private Date orderDate; // 주문일
     private ArrayList<OrderDetail> details;
     private OrderDetail detail;
+    private Product product;
     
-    public int getNo() {
+	public Orders() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	
+    public Orders(int no) {
+		super();
+		this.no = no;
+	}
+
+	public Orders(int no, Member member, OrderDetail detail) {
+		super();
+		this.no = no;
+		this.member = member;
+		this.detail = detail;
+	}
+
+	public Orders(int no, Member member, Date orderDate, ArrayList<OrderDetail> details, OrderDetail detail,
+			Product product) {
+		super();
+		this.no = no;
+		this.member = member;
+		this.orderDate = orderDate;
+		this.details = details;
+		this.detail = detail;
+		this.product = product;
+	}
+
+	public Product getProduct() {
+		return product;
+	}
+
+	public void setProduct(Product product) {
+		this.product = product;
+	}
+
+	public int getNo() {
         return no;
     }
 

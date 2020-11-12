@@ -18,7 +18,12 @@ public class Product {
     public Product() {
     }
 
-    public Product(int no, String name) {
+    public Product(int no) {
+		super();
+		this.no = no;
+	}
+
+	public Product(int no, String name) {
 		this.no = no;
 		this.name = name;
 	}

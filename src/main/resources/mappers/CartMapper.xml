@@ -53,15 +53,16 @@
 		<include refid="whereSQL"/>
 	</update>
 	
-	<select id="listCart" resultMap="resCart">
-		<include refid="selectSQL"/>
-		<include refid="whereSQL"/>
-	</select>
-	
 	<delete id="deleteCart" parameterType="Cart">
 		DELETE FROM CART
-		<include refid="whereSQL"/>	
+		WHERE NO = #{no}
 	</delete>
+	
+	<select id="listCart" resultMap="resCart">
+		<include refid="selectSQL"/>
+		WHERE MEMBERID = #{id}
+		ORDER BY NO DESC
+	</select>
 	
 	
 	

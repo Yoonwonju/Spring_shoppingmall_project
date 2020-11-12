@@ -10,13 +10,33 @@ public class Cart {
 	private Date regDate;      // 등록일
 	private boolean isResult;
 
-	public Cart() {}
+
+
+	public Cart() {
+		super();
+	}
+
+
+	public Cart(Member member) {
+		super();
+		this.member = member;
+	}
+
 
 	public Cart(Member member, int quantity) {
 		super();
 		this.member = member;
 		this.quantity = quantity;
 	}
+
+
+	public Cart(Member member, Product product, int quantity) {
+		super();
+		this.member = member;
+		this.product = product;
+		this.quantity = quantity;
+	}
+
 
 	public Cart(int no, Member member, Product product, int quantity, Date regDate) {
 		this.no = no;

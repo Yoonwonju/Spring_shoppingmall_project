@@ -16,6 +16,11 @@ public class OrderDetail {
 		this.cart = cart;
 	}
 
+	public OrderDetail(String result) {
+		super();
+		this.result = result;
+	}
+
 	public int getNo() {
         return no;
     }

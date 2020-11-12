@@ -1,7 +1,5 @@
 package shopping_project.mapper;
 
-import static org.junit.Assert.fail;
-
 import java.util.List;
 
 import org.apache.ibatis.logging.Log;
@@ -19,6 +17,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import shopping_project.config.ControllerConfig;
 import shopping_project.dto.Cart;
 import shopping_project.dto.Member;
+import shopping_project.dto.Product;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = { ControllerConfig.class })
@@ -38,41 +37,47 @@ public class CartMapperTest {
 	@Test
 	public void test01InsertCart() {
 		log.debug(Thread.currentThread().getStackTrace()[1].getMethodName() + "()");
-		Member mem = new Member();
-		mem.setId("one");
-		Cart insertCart = new Cart(new Member(mem.getId()), '3');
-		int res = mapper.insertCart(insertCart);
+//		Cart cart = new Cart();
+//		cart.setMember(new Member("two"));
+//		cart.setProduct(new Product(2));
+//		cart.setQuantity(1);
+		Cart cart = new Cart(new Member("two"), new Product(2), 1);
+		int res = mapper.insertCart(cart);
 		Assert.assertEquals(1, res);
-		log.debug(insertCart.toString());
 	}
 	
 	@Test
-	public void test02UpdateCartResult() {
+	public void test02UpdateCart() {
 		log.debug(Thread.currentThread().getStackTrace()[1].getMethodName() + "()");
-		Cart updateCart = new Cart(5, "전산", 22);
-		int res = mapper.updateCart(updateCart);
+//		Cart cart = new Cart();
+//		Member member = new Member();
+//		
+//		member.setId("three");
+		Cart cart = new Cart(new Member("two"), new Product(2), 3);
+		int res = mapper.updateCart(cart);
 		Assert.assertEquals(1, res);
-		log.debug(updateCart.toString());
+		log.debug(cart.toString());
 	}
 
 	@Test
 	public void test03ListCart() {
 		log.debug(Thread.currentThread().getStackTrace()[1].getMethodName() + "()");
 		
-		Member mem = new Member();
-		mem.setId("one");
-		List<Cart> selectCart = mapper.listCart(mem.getId());
+//		Member member = new Member();
+//		member.setId("one");
+//		ArrayList<Cart> selectCart = mapper.listCart(member.getId());
+		Member member = new Member();
+		member.setId("two");
+		List<Cart> selectCart = mapper.listCart(member.getId());
 		Assert.assertNotNull(selectCart);
-		log.debug(selectCart.toString());
+		selectCart.forEach(cart -> log.debug(cart.toString()));
 	}
 
 	@Test
 	public void test04DeleteCart() {
 		log.debug(Thread.currentThread().getStackTrace()[1].getMethodName() + "()");
-		Cart deleteCart = new Cart(2);
-		int res = mapper.deleteCart(deleteCart);
+		int res = mapper.deleteCart(21);
 		Assert.assertEquals(1, res);
-		log.debug(deleteCart.toString());
 	}
 
 }
