@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - Class shopping_project.mapper.ProductMapperTest</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>Class shopping_project.mapper.ProductMapperTest</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/shopping_project.mapper.html">shopping_project.mapper</a> &gt; ProductMapperTest</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">9</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">0</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">0.032s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="tabs">
+<ul class="tabLinks">
+<li>
+<a href="#tab0">Tests</a>
+</li>
+<li>
+<a href="#tab1">Standard output</a>
+</li>
+</ul>
+<div id="tab0" class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="success">test01ListNewProduct</td>
+<td class="success">0.016s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">test02ListBestProduct</td>
+<td class="success">0.004s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">test03GetProduct</td>
+<td class="success">0.006s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">test04ListKindProduct</td>
+<td class="success">0.001s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">test05TotalRecord</td>
+<td class="success">0.001s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">test06PageNumber</td>
+<td class="success">0.001s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">test07ListProduct</td>
+<td class="success">0.001s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">test08InsertProduct</td>
+<td class="success">0.001s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">test09UpdateProduct</td>
+<td class="success">0.001s</td>
+<td class="success">passed</td>
+</tr>
+</table>
+</div>
+<div id="tab1" class="tab">
+<h2>Standard output</h2>
+<span class="code">
+<pre>DEBUG [Test worker] - test01ListNewProduct()
+DEBUG [Test worker] - ==&gt;  Preparing: SELECT NO, NAME, SALEPRICE, IMAGE FROM NEW_PRO_VIEW
+DEBUG [Test worker] - ==&gt; Parameters: 
+TRACE [Test worker] - &lt;==    Columns: NO, NAME, SALEPRICE, IMAGE
+TRACE [Test worker] - &lt;==        Row: 2, 롱부츠, 50000, w-28.jpg
+TRACE [Test worker] - &lt;==        Row: 5, 회색힐, 12000, w9.jpg
+TRACE [Test worker] - &lt;==        Row: 4, 슬리퍼, 5500, w-25.jpg
+TRACE [Test worker] - &lt;==        Row: 3, 힐, 12000, w-26.jpg
+DEBUG [Test worker] - &lt;==      Total: 4
+DEBUG [Test worker] - Product [no=2, name=롱부츠, kind=null, price=0, salePrice=50000, margin=0, content=null, image=w-28.jpg, delYn=null, bestYn=null, regDate=null]
+DEBUG [Test worker] - Product [no=5, name=회색힐, kind=null, price=0, salePrice=12000, margin=0, content=null, image=w9.jpg, delYn=null, bestYn=null, regDate=null]
+DEBUG [Test worker] - Product [no=4, name=슬리퍼, kind=null, price=0, salePrice=5500, margin=0, content=null, image=w-25.jpg, delYn=null, bestYn=null, regDate=null]
+DEBUG [Test worker] - Product [no=3, name=힐, kind=null, price=0, salePrice=12000, margin=0, content=null, image=w-26.jpg, delYn=null, bestYn=null, regDate=null]
+
+DEBUG [Test worker] - test02ListBestProduct()
+DEBUG [Test worker] - ==&gt;  Preparing: SELECT NO, NAME, SALEPRICE, IMAGE FROM BEST_PRO_VIEW
+DEBUG [Test worker] - ==&gt; Parameters: 
+TRACE [Test worker] - &lt;==    Columns: NO, NAME, SALEPRICE, IMAGE
+TRACE [Test worker] - &lt;==        Row: 4, 슬리퍼, 5500, w-25.jpg
+TRACE [Test worker] - &lt;==        Row: 7, 핑크샌달, 5500, w-10.jpg
+TRACE [Test worker] - &lt;==        Row: 8, 슬리퍼, 5500, w11.jpg
+DEBUG [Test worker] - &lt;==      Total: 3
+DEBUG [Test worker] - Product [no=4, name=슬리퍼, kind=null, price=0, salePrice=5500, margin=0, content=null, image=w-25.jpg, delYn=null, bestYn=null, regDate=null]
+DEBUG [Test worker] - Product [no=7, name=핑크샌달, kind=null, price=0, salePrice=5500, margin=0, content=null, image=w-10.jpg, delYn=null, bestYn=null, regDate=null]
+DEBUG [Test worker] - Product [no=8, name=슬리퍼, kind=null, price=0, salePrice=5500, margin=0, content=null, image=w11.jpg, delYn=null, bestYn=null, regDate=null]
+
+DEBUG [Test worker] - test03GetProduct()
+DEBUG [Test worker] - ==&gt;  Preparing: SELECT NO, NAME, KIND, PRICE, SALEPRICE, MARGIN, CONTENT, IMAGE, DEL_YN, BEST_YN, REG_DATE FROM PRODUCT WHERE NO= ?
+DEBUG [Test worker] - ==&gt; Parameters: 3(Integer)
+TRACE [Test worker] - &lt;==    Columns: NO, NAME, KIND, PRICE, SALEPRICE, MARGIN, CONTENT, IMAGE, DEL_YN, BEST_YN, REG_DATE
+TRACE [Test worker] - &lt;==        Row: 3, 힐, 1, 10000, 12000, 2000, 여성용전용 힐, w-26.jpg, y, n, 2020-11-19 19:04:34
+DEBUG [Test worker] - &lt;==      Total: 1
+DEBUG [Test worker] - Product [no=3, name=힐, kind=1, price=10000, salePrice=12000, margin=2000, content=여성용전용 힐, image=w-26.jpg, delYn=y, bestYn=n, regDate=Thu Nov 19 19:04:34 KST 2020]
+
+DEBUG [Test worker] - test04ListKindProduct()
+
+DEBUG [Test worker] - test05TotalRecord()
+
+DEBUG [Test worker] - test06PageNumber()
+
+DEBUG [Test worker] - test07ListProduct()
+
+DEBUG [Test worker] - test08InsertProduct()
+
+DEBUG [Test worker] - test09UpdateProduct()
+
+</pre>
+</span>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="http://www.gradle.org">Gradle 6.3</a> at 2020. 11. 19 오후 9:54:36</p>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="shopping_project.mapper.MemberMapper">
+	<resultMap type="Member" id="resMember">
+		<id property="id" column="ID"/>
+		<result property="pwd" column="PWD"/>
+		<result property="name" column="NAME"/>
+		<result property="email" column="EMAIL"/>
+		<result property="zipNum" column="ZIP_NUM"/>
+		<result property="address" column="ADDRESS"/>
+		<result property="phone" column="PHONE"/>
+		<result property="leave_yn" column="LEAVE_YN"/>
+		<result property="joinDate" column="JOIN_DATE"/>
+	</resultMap>
+
+	<sql id="selectSQL">
+		SELECT ID,PWD,NAME,EMAIL,ZIP_NUM,ADDRESS,PHONE,LEAVE_YN,JOIN_DATE FROM MEMBER
+	</sql>
+
+	<sql id="whereSQL">
+		<where>
+			<if test="id != null">
+				ID = #{id}
+			</if>
+		</where>
+	</sql>
+	
+	<select id="confirmID" resultType="int">
+		SELECT 1 FROM MEMBER WHERE ID = #{id}
+	</select>
+	
+	<select id="getMember" resultMap="resMember">
+		SELECT ID, PWD, NAME, EMAIL, ZIP_NUM, ADDRESS, PHONE 
+  		  FROM MEMBER WHERE ID = #{id}
+	</select>
+	
+	<insert id="insertMember" parameterType="Member">
+		INSERT INTO MEMBER(ID, PWD, NAME, EMAIL, ZIP_NUM, ADDRESS, PHONE)
+		VALUES(#{id}, #{pwd}, #{name}, #{email}, #{zipNum}, #{address}, #{phone})
+	</insert>
+	
+	<select id="listMember" resultMap="resMember">
+		<include refid="selectSQL"/>
+		WHERE NAME LIKE #{dong}
+	</select>
+</mapper>

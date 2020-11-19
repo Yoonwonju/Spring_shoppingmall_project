@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="shopping_project.mapper.AddressMapperTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-11-19T12:54:35" hostname="DESKTOP-DKQES9C" time="0.006">
+  <properties/>
+  <testcase name="testSelectAddressByDong" classname="shopping_project.mapper.AddressMapperTest" time="0.006"/>
+  <system-out><![CDATA[DEBUG [Test worker] - testSelectAddressByDong()
+DEBUG [Test worker] - ==>  Preparing: SELECT ZIP_NUM, SIDO, GUGUN, DONG, ZIP_CODE, BUNJI FROM ADDRESS WHERE DONG LIKE ?
+DEBUG [Test worker] - ==> Parameters: %일원동%(String)
+TRACE [Test worker] - <==    Columns: ZIP_NUM, SIDO, GUGUN, DONG, ZIP_CODE, BUNJI
+TRACE [Test worker] - <==        Row: 135-967, 서울, 강남구, 일원동 공무원아파트, 491, null
+TRACE [Test worker] - <==        Row: 135-710, 서울, 강남구, 일원동 삼성의료원, 492, null
+TRACE [Test worker] - <==        Row: 135-230, 서울, 강남구, 일원동, 493, null
+DEBUG [Test worker] - <==      Total: 3
+
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

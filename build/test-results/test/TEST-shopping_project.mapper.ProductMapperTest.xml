@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="shopping_project.mapper.ProductMapperTest" tests="9" skipped="0" failures="0" errors="0" timestamp="2020-11-19T12:54:35" hostname="DESKTOP-DKQES9C" time="0.034">
+  <properties/>
+  <testcase name="test01ListNewProduct" classname="shopping_project.mapper.ProductMapperTest" time="0.016"/>
+  <testcase name="test02ListBestProduct" classname="shopping_project.mapper.ProductMapperTest" time="0.004"/>
+  <testcase name="test03GetProduct" classname="shopping_project.mapper.ProductMapperTest" time="0.006"/>
+  <testcase name="test04ListKindProduct" classname="shopping_project.mapper.ProductMapperTest" time="0.001"/>
+  <testcase name="test05TotalRecord" classname="shopping_project.mapper.ProductMapperTest" time="0.001"/>
+  <testcase name="test06PageNumber" classname="shopping_project.mapper.ProductMapperTest" time="0.001"/>
+  <testcase name="test07ListProduct" classname="shopping_project.mapper.ProductMapperTest" time="0.001"/>
+  <testcase name="test08InsertProduct" classname="shopping_project.mapper.ProductMapperTest" time="0.001"/>
+  <testcase name="test09UpdateProduct" classname="shopping_project.mapper.ProductMapperTest" time="0.001"/>
+  <system-out><![CDATA[DEBUG [Test worker] - test01ListNewProduct()
+DEBUG [Test worker] - ==>  Preparing: SELECT NO, NAME, SALEPRICE, IMAGE FROM NEW_PRO_VIEW
+DEBUG [Test worker] - ==> Parameters: 
+TRACE [Test worker] - <==    Columns: NO, NAME, SALEPRICE, IMAGE
+TRACE [Test worker] - <==        Row: 2, 롱부츠, 50000, w-28.jpg
+TRACE [Test worker] - <==        Row: 5, 회색힐, 12000, w9.jpg
+TRACE [Test worker] - <==        Row: 4, 슬리퍼, 5500, w-25.jpg
+TRACE [Test worker] - <==        Row: 3, 힐, 12000, w-26.jpg
+DEBUG [Test worker] - <==      Total: 4
+DEBUG [Test worker] - Product [no=2, name=롱부츠, kind=null, price=0, salePrice=50000, margin=0, content=null, image=w-28.jpg, delYn=null, bestYn=null, regDate=null]
+DEBUG [Test worker] - Product [no=5, name=회색힐, kind=null, price=0, salePrice=12000, margin=0, content=null, image=w9.jpg, delYn=null, bestYn=null, regDate=null]
+DEBUG [Test worker] - Product [no=4, name=슬리퍼, kind=null, price=0, salePrice=5500, margin=0, content=null, image=w-25.jpg, delYn=null, bestYn=null, regDate=null]
+DEBUG [Test worker] - Product [no=3, name=힐, kind=null, price=0, salePrice=12000, margin=0, content=null, image=w-26.jpg, delYn=null, bestYn=null, regDate=null]
+
+DEBUG [Test worker] - test02ListBestProduct()
+DEBUG [Test worker] - ==>  Preparing: SELECT NO, NAME, SALEPRICE, IMAGE FROM BEST_PRO_VIEW
+DEBUG [Test worker] - ==> Parameters: 
+TRACE [Test worker] - <==    Columns: NO, NAME, SALEPRICE, IMAGE
+TRACE [Test worker] - <==        Row: 4, 슬리퍼, 5500, w-25.jpg
+TRACE [Test worker] - <==        Row: 7, 핑크샌달, 5500, w-10.jpg
+TRACE [Test worker] - <==        Row: 8, 슬리퍼, 5500, w11.jpg
+DEBUG [Test worker] - <==      Total: 3
+DEBUG [Test worker] - Product [no=4, name=슬리퍼, kind=null, price=0, salePrice=5500, margin=0, content=null, image=w-25.jpg, delYn=null, bestYn=null, regDate=null]
+DEBUG [Test worker] - Product [no=7, name=핑크샌달, kind=null, price=0, salePrice=5500, margin=0, content=null, image=w-10.jpg, delYn=null, bestYn=null, regDate=null]
+DEBUG [Test worker] - Product [no=8, name=슬리퍼, kind=null, price=0, salePrice=5500, margin=0, content=null, image=w11.jpg, delYn=null, bestYn=null, regDate=null]
+
+DEBUG [Test worker] - test03GetProduct()
+DEBUG [Test worker] - ==>  Preparing: SELECT NO, NAME, KIND, PRICE, SALEPRICE, MARGIN, CONTENT, IMAGE, DEL_YN, BEST_YN, REG_DATE FROM PRODUCT WHERE NO= ?
+DEBUG [Test worker] - ==> Parameters: 3(Integer)
+TRACE [Test worker] - <==    Columns: NO, NAME, KIND, PRICE, SALEPRICE, MARGIN, CONTENT, IMAGE, DEL_YN, BEST_YN, REG_DATE
+TRACE [Test worker] - <==        Row: 3, 힐, 1, 10000, 12000, 2000, 여성용전용 힐, w-26.jpg, y, n, 2020-11-19 19:04:34
+DEBUG [Test worker] - <==      Total: 1
+DEBUG [Test worker] - Product [no=3, name=힐, kind=1, price=10000, salePrice=12000, margin=2000, content=여성용전용 힐, image=w-26.jpg, delYn=y, bestYn=n, regDate=Thu Nov 19 19:04:34 KST 2020]
+
+DEBUG [Test worker] - test04ListKindProduct()
+
+DEBUG [Test worker] - test05TotalRecord()
+
+DEBUG [Test worker] - test06PageNumber()
+
+DEBUG [Test worker] - test07ListProduct()
+
+DEBUG [Test worker] - test08InsertProduct()
+
+DEBUG [Test worker] - test09UpdateProduct()
+
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

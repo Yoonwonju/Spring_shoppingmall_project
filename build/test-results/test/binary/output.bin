@@ -1,0 +1,159 @@
+*DEBUG [Test worker] - test01InsertCart()
+aDEBUG [Test worker] - ==>  Preparing: INSERT INTO CART(MEMBERID, PNO, QUANTITY) VALUES(?, ?, ?)
+KDEBUG [Test worker] - ==> Parameters: two(String), 2(Integer), 1(Integer)
+)DEBUG [Test worker] - <==    Updates: 1
+
+*DEBUG [Test worker] - test02UpdateCart()
+zDEBUG [Test worker] - ==>  Preparing: UPDATE CART SET PNO = ?, MEMBERID = ?, QUANTITY = ?, RESULT = ? WHERE MEMBERID = ?
+hDEBUG [Test worker] - ==> Parameters: 2(Integer), two(String), 3(Integer), false(Boolean), two(String)
+)DEBUG [Test worker] - <==    Updates: 3
+
+(DEBUG [Test worker] - test03ListCart()
+�DEBUG [Test worker] - ==>  Preparing: SELECT NO,PNO,MEMBERID,QUANTITY,RESULT,REG_DATE FROM CART WHERE MEMBERID = ? ORDER BY NO DESC
+3DEBUG [Test worker] - ==> Parameters: two(String)
+UTRACE [Test worker] - <==    Columns: NO, PNO, MEMBERID, QUANTITY, RESULT, REG_DATE
+LTRACE [Test worker] - <==        Row: 3, 2, two, 3, 0, 2020-11-19 21:54:35
+LTRACE [Test worker] - <==        Row: 2, 2, two, 3, 0, 2020-11-19 21:51:12
+LTRACE [Test worker] - <==        Row: 1, 2, two, 3, 0, 2020-11-19 21:49:05
+)DEBUG [Test worker] - <==      Total: 3
+�DEBUG [Test worker] - Cart [no=3, member=Member [id=two, pwd=null, name=null, email=null, zip_num=null, address=null, phone=null, leave_yn=null, join_date=null], product=Product [no=2, name=null, kind=null, price=0, salePrice=0, margin=0, content=null, image=null, delYn=null, bestYn=null, regDate=null], quantity=3, regDate=Thu Nov 19 21:54:35 KST 2020, isResult=false]
+�DEBUG [Test worker] - Cart [no=2, member=Member [id=two, pwd=null, name=null, email=null, zip_num=null, address=null, phone=null, leave_yn=null, join_date=null], product=Product [no=2, name=null, kind=null, price=0, salePrice=0, margin=0, content=null, image=null, delYn=null, bestYn=null, regDate=null], quantity=3, regDate=Thu Nov 19 21:51:12 KST 2020, isResult=false]
+�DEBUG [Test worker] - Cart [no=1, member=Member [id=two, pwd=null, name=null, email=null, zip_num=null, address=null, phone=null, leave_yn=null, join_date=null], product=Product [no=2, name=null, kind=null, price=0, salePrice=0, margin=0, content=null, image=null, delYn=null, bestYn=null, regDate=null], quantity=3, regDate=Thu Nov 19 21:49:05 KST 2020, isResult=false]
+
+*DEBUG [Test worker] - test04DeleteCart()
+EDEBUG [Test worker] - ==>  Preparing: DELETE FROM CART WHERE NO = ?
+3DEBUG [Test worker] - ==> Parameters: 21(Integer)
+)DEBUG [Test worker] - <==    Updates: 0
+
+0DEBUG [Test worker] - test01ConfirmIDSuccess()
+IDEBUG [Test worker] - ==>  Preparing: SELECT 1 FROM MEMBER WHERE ID = ?
+3DEBUG [Test worker] - ==> Parameters: one(String)
+)TRACE [Test worker] - <==    Columns: 1
+)TRACE [Test worker] - <==        Row: 1
+)DEBUG [Test worker] - <==      Total: 1
+
+-DEBUG [Test worker] - test02ConfirmIDFail()
+IDEBUG [Test worker] - ==>  Preparing: SELECT 1 FROM MEMBER WHERE ID = ?
+7DEBUG [Test worker] - ==> Parameters: oneNone(String)
+)DEBUG [Test worker] - <==      Total: 0
+
+	0DEBUG [Test worker] - test03GetMemberSuccess()
+	uDEBUG [Test worker] - ==>  Preparing: SELECT ID, PWD, NAME, EMAIL, ZIP_NUM, ADDRESS, PHONE FROM MEMBER WHERE ID = ?
+	3DEBUG [Test worker] - ==> Parameters: one(String)
+	UTRACE [Test worker] - <==    Columns: ID, PWD, NAME, EMAIL, ZIP_NUM, ADDRESS, PHONE
+	�TRACE [Test worker] - <==        Row: one, 1111, 김나리, knari@test.co.kr, 133-110, 서울시성동구성수동1가 1번지21호, 017-777-7777 
+	)DEBUG [Test worker] - <==      Total: 1
+	
+
+-DEBUG [Test worker] - test04GetMemberFail()
+
+uDEBUG [Test worker] - ==>  Preparing: SELECT ID, PWD, NAME, EMAIL, ZIP_NUM, ADDRESS, PHONE FROM MEMBER WHERE ID = ?
+
+7DEBUG [Test worker] - ==> Parameters: oneNone(String)
+
+)DEBUG [Test worker] - <==      Total: 0
+
+
+,DEBUG [Test worker] - test05InsertMember()
+�DEBUG [Test worker] - ==>  Preparing: INSERT INTO MEMBER(ID, PWD, NAME, EMAIL, ZIP_NUM, ADDRESS, PHONE) VALUES(?, ?, ?, ?, ?, ?, ?)
+�DEBUG [Test worker] - ==> Parameters: three(String), 1111(String), 세번째(String), three@test.co.kr(String), 133-110(String), 서울시 성동구 성수동 1가 1번지 21호(String), 010-333-3333(String)
+
+*DEBUG [Test worker] - test06ListMember()
+�DEBUG [Test worker] - ==>  Preparing: SELECT ID,PWD,NAME,EMAIL,ZIP_NUM,ADDRESS,PHONE,LEAVE_YN,JOIN_DATE FROM MEMBER WHERE NAME LIKE ?
+5DEBUG [Test worker] - ==> Parameters: %째%(String)
+jTRACE [Test worker] - <==    Columns: ID, PWD, NAME, EMAIL, ZIP_NUM, ADDRESS, PHONE, LEAVE_YN, JOIN_DATE
+�TRACE [Test worker] - <==        Row: three, 1111, 세번째, three@test.co.kr, 133-110, 서울시 성동구 성수동 1가 1번지 21호, 010-333-3333 , y, 2020-11-19 21:49:05
+)DEBUG [Test worker] - <==      Total: 1
+
+1DEBUG [Test worker] - test01SelectMaxOrdersNo()
+BDEBUG [Test worker] - ==>  Preparing: SELECT MAX(NO) FROM ORDERS
+(DEBUG [Test worker] - ==> Parameters: 
+/TRACE [Test worker] - <==    Columns: MAX(NO)
+,TRACE [Test worker] - <==        Row: null
+)DEBUG [Test worker] - <==      Total: 1
+
+2DEBUG [Test worker] - test02OrderListsByMember()
+�DEBUG [Test worker] - ==>  Preparing: SELECT DNO, ONO, MID, ORDER_DATE, PNO, QUANTITY, MNAME, ZIP_NUM, ADDRESS, PHONE, PNAME, SALEPRICE, RESULT FROM ORDER_VIEW WHERE MID = ?
+3DEBUG [Test worker] - ==> Parameters: two(String)
+)DEBUG [Test worker] - <==      Total: 0
+
+1DEBUG [Test worker] - test03SelectSeqOrderIng()
+}DEBUG [Test worker] - ==>  Preparing: SELECT DISTINCT ONO FROM ORDER_VIEW WHERE MID = ? AND RESULT LIKE ? ORDER BY ONO DESC
+>DEBUG [Test worker] - ==> Parameters: two(String), 1(String)
+)DEBUG [Test worker] - <==      Total: 0
+
+*DEBUG [Test worker] - test04ListOrders()
+�DEBUG [Test worker] - ==>  Preparing: SELECT DNO, ONO, MID, ORDER_DATE, PNO, QUANTITY, MNAME, ZIP_NUM, ADDRESS, PHONE, PNAME, SALEPRICE, RESULT FROM ORDER_VIEW WHERE MNAME like ? ORDER BY RESULT, ONO DESC
+9DEBUG [Test worker] - ==> Parameters: 김나리(String)
+)DEBUG [Test worker] - <==      Total: 0
+
+/DEBUG [Test worker] - testUpdateOrderResult()
+[DEBUG [Test worker] - ==>  Preparing: UPDATE ORDER_DETAIL SET RESULT_YN='1' WHERE ONO = ?
+2DEBUG [Test worker] - ==> Parameters: 2(Integer)
+)DEBUG [Test worker] - <==    Updates: 0
+
+(DEBUG [Test worker] - testDataSource()
+BDEBUG [Test worker] - DataSource HikariDataSource (HikariPool-1)
+'DEBUG [Test worker] - LoginTimeout 30
+
+(DEBUG [Test worker] - testSqlSession()
+]DEBUG [Test worker] - session org.apache.ibatis.session.defaults.DefaultSqlSession@51a2849d
+
+5DEBUG [Test worker] - testSqlSessionGetConnection()
+nDEBUG [Test worker] - conHikariProxyConnection@1754972310 wrapping oracle.jdbc.driver.T4CConnection@15d824ee
+
+1DEBUG [Test worker] - testSelectAddressByDong()
+yDEBUG [Test worker] - ==>  Preparing: SELECT ZIP_NUM, SIDO, GUGUN, DONG, ZIP_CODE, BUNJI FROM ADDRESS WHERE DONG LIKE ?
+;DEBUG [Test worker] - ==> Parameters: %일원동%(String)
+STRACE [Test worker] - <==    Columns: ZIP_NUM, SIDO, GUGUN, DONG, ZIP_CODE, BUNJI
+kTRACE [Test worker] - <==        Row: 135-967, 서울, 강남구, 일원동 공무원아파트, 491, null
+hTRACE [Test worker] - <==        Row: 135-710, 서울, 강남구, 일원동 삼성의료원, 492, null
+XTRACE [Test worker] - <==        Row: 135-230, 서울, 강남구, 일원동, 493, null
+)DEBUG [Test worker] - <==      Total: 3
+
+.DEBUG [Test worker] - test01ListNewProduct()
+[DEBUG [Test worker] - ==>  Preparing: SELECT NO, NAME, SALEPRICE, IMAGE FROM NEW_PRO_VIEW
+(DEBUG [Test worker] - ==> Parameters: 
+BTRACE [Test worker] - <==    Columns: NO, NAME, SALEPRICE, IMAGE
+ETRACE [Test worker] - <==        Row: 2, 롱부츠, 50000, w-28.jpg
+CTRACE [Test worker] - <==        Row: 5, 회색힐, 12000, w9.jpg
+DTRACE [Test worker] - <==        Row: 4, 슬리퍼, 5500, w-25.jpg
+?TRACE [Test worker] - <==        Row: 3, 힐, 12000, w-26.jpg
+)DEBUG [Test worker] - <==      Total: 4
+�DEBUG [Test worker] - Product [no=2, name=롱부츠, kind=null, price=0, salePrice=50000, margin=0, content=null, image=w-28.jpg, delYn=null, bestYn=null, regDate=null]
+�DEBUG [Test worker] - Product [no=5, name=회색힐, kind=null, price=0, salePrice=12000, margin=0, content=null, image=w9.jpg, delYn=null, bestYn=null, regDate=null]
+�DEBUG [Test worker] - Product [no=4, name=슬리퍼, kind=null, price=0, salePrice=5500, margin=0, content=null, image=w-25.jpg, delYn=null, bestYn=null, regDate=null]
+�DEBUG [Test worker] - Product [no=3, name=힐, kind=null, price=0, salePrice=12000, margin=0, content=null, image=w-26.jpg, delYn=null, bestYn=null, regDate=null]
+
+/DEBUG [Test worker] - test02ListBestProduct()
+\DEBUG [Test worker] - ==>  Preparing: SELECT NO, NAME, SALEPRICE, IMAGE FROM BEST_PRO_VIEW
+(DEBUG [Test worker] - ==> Parameters: 
+BTRACE [Test worker] - <==    Columns: NO, NAME, SALEPRICE, IMAGE
+DTRACE [Test worker] - <==        Row: 4, 슬리퍼, 5500, w-25.jpg
+GTRACE [Test worker] - <==        Row: 7, 핑크샌달, 5500, w-10.jpg
+CTRACE [Test worker] - <==        Row: 8, 슬리퍼, 5500, w11.jpg
+)DEBUG [Test worker] - <==      Total: 3
+�DEBUG [Test worker] - Product [no=4, name=슬리퍼, kind=null, price=0, salePrice=5500, margin=0, content=null, image=w-25.jpg, delYn=null, bestYn=null, regDate=null]
+�DEBUG [Test worker] - Product [no=7, name=핑크샌달, kind=null, price=0, salePrice=5500, margin=0, content=null, image=w-10.jpg, delYn=null, bestYn=null, regDate=null]
+�DEBUG [Test worker] - Product [no=8, name=슬리퍼, kind=null, price=0, salePrice=5500, margin=0, content=null, image=w11.jpg, delYn=null, bestYn=null, regDate=null]
+
+*DEBUG [Test worker] - test03GetProduct()
+�DEBUG [Test worker] - ==>  Preparing: SELECT NO, NAME, KIND, PRICE, SALEPRICE, MARGIN, CONTENT, IMAGE, DEL_YN, BEST_YN, REG_DATE FROM PRODUCT WHERE NO= ?
+2DEBUG [Test worker] - ==> Parameters: 3(Integer)
+{TRACE [Test worker] - <==    Columns: NO, NAME, KIND, PRICE, SALEPRICE, MARGIN, CONTENT, IMAGE, DEL_YN, BEST_YN, REG_DATE
+TRACE [Test worker] - <==        Row: 3, 힐, 1, 10000, 12000, 2000, 여성용전용 힐, w-26.jpg, y, n, 2020-11-19 19:04:34
+)DEBUG [Test worker] - <==      Total: 1
+�DEBUG [Test worker] - Product [no=3, name=힐, kind=1, price=10000, salePrice=12000, margin=2000, content=여성용전용 힐, image=w-26.jpg, delYn=y, bestYn=n, regDate=Thu Nov 19 19:04:34 KST 2020]
+
+ /DEBUG [Test worker] - test04ListKindProduct()
+ 
+!+DEBUG [Test worker] - test05TotalRecord()
+!
+"*DEBUG [Test worker] - test06PageNumber()
+"
+#+DEBUG [Test worker] - test07ListProduct()
+#
+$-DEBUG [Test worker] - test08InsertProduct()
+$
+%-DEBUG [Test worker] - test09UpdateProduct()
+%

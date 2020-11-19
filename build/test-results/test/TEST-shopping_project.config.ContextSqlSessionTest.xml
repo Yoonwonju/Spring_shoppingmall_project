@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="shopping_project.config.ContextSqlSessionTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2020-11-19T12:54:35" hostname="DESKTOP-DKQES9C" time="0.002">
+  <properties/>
+  <testcase name="testSqlSession" classname="shopping_project.config.ContextSqlSessionTest" time="0.001"/>
+  <testcase name="testSqlSessionGetConnection" classname="shopping_project.config.ContextSqlSessionTest" time="0.001"/>
+  <system-out><![CDATA[DEBUG [Test worker] - testSqlSession()
+DEBUG [Test worker] - session org.apache.ibatis.session.defaults.DefaultSqlSession@51a2849d
+
+DEBUG [Test worker] - testSqlSessionGetConnection()
+DEBUG [Test worker] - conHikariProxyConnection@1754972310 wrapping oracle.jdbc.driver.T4CConnection@15d824ee
+
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

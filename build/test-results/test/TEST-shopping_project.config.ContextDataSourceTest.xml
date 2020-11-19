@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="shopping_project.config.ContextDataSourceTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-11-19T12:54:35" hostname="DESKTOP-DKQES9C" time="0.002">
+  <properties/>
+  <testcase name="testDataSource" classname="shopping_project.config.ContextDataSourceTest" time="0.002"/>
+  <system-out><![CDATA[DEBUG [Test worker] - testDataSource()
+DEBUG [Test worker] - DataSource HikariDataSource (HikariPool-1)
+DEBUG [Test worker] - LoginTimeout 30
+
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
