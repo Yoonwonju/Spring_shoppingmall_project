@@ -8,6 +8,8 @@ CREATE TABLE address (
 	bunji VARCHAR(100) /* 번지 */
 );
 
+SELECT * FROM ADDRESS;
+
 INSERT INTO address ( zip_num, sido, gugun, dong, bunji,zip_code ) VALUES ( '135-512', '서울', '강남구', '역삼2동 진달래아파트', '(10∼17동)', '446'); 
 INSERT INTO address ( zip_num, sido, gugun, dong, bunji,zip_code ) VALUES ('135-918', '서울', '강남구', '역삼2동', '706∼707', '447'); 
 INSERT INTO address ( zip_num, sido, gugun, dong, bunji,zip_code ) VALUES ( '135-919', '서울', '강남구', '역삼2동', '708∼716', '448'); 
